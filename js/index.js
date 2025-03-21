@@ -538,7 +538,7 @@ function openSetSchedModal(date, time, hour, min) {
                 <p>Step:</p>
                 <input class="step" type="number" id="setHour" name="setHour" value="${hour}" min="0"/>
                 <small>:</small> 
-                <input class="step" type="number" id="setMin" name="setMin" value="${min}" min="1"/>
+                <input class="step" type="number" id="setMin" name="setMin" value="${min}" min="5"/>
                 <button type="submit">Submit</button>
             </form>
         </div>
