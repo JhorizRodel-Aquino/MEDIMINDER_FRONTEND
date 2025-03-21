@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Medication Tracker</title>
+  </head>
+  <body>
+    <h1>MEDICATION TRACKER</h1>
+    <main>
+      <section>
+        <div class="container">
+          <div class="createUser">
+            <form id="createUserForm">
+              <input
+                type="text"
+                id="username"
+                name="username"
+                placeholder="Name"
+                required
+              />
+              <!-- <input
+                type="file"
+                id="user_image"
+                name="user_image"
+                accept="image/png, image/jpeg, image/jpg"
+              /> -->
+              <input 
+                type="text" 
+                id="user_image"
+                name="user_image"
+                placeholder="Image Address"
+              />
+              <button type="submit">Create</button>
+            </form>
+          </div>
+          <div id="displayUser"></div>
+        </div>
+      </section>
+    </main>
+  </body>
+
+  <footer></footer>
+  <script src="https://cdn.socket.io/4.3.2/socket.io.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="./js/index.js"></script>
+</html>
