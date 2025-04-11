@@ -1,12 +1,9 @@
 // const apiURL = "https://mediminder457.pythonanywhere.com";
 // const apiURL = "http://127.0.0.1:5000";
-const apiURL = "https://mediminder-backend.onrender.com";
 // const apiURL = "https://mediminder-backend.vercel.app";
+const apiURL = "http://api.mediminder.site";
 
 // const socket = io(apiURL);
-// const socket = io({
-//   transports: ["polling"],
-// });
 // socket.on("records_updated", (data) => {
 //   if (data) window.location.reload();
 // });
@@ -30,7 +27,7 @@ function createUser(e) {
 
   postRequest.onload = () => {
     if (postRequest.status === 200) {
-      //   alert(postRequest.responseText); // Success response
+        console.log(postRequest.responseText); // Success response
       document.getElementById("createUserForm").reset(); // Reset the form
       window.location.reload();
     } else {
@@ -81,7 +78,7 @@ function addUserElements(id, name, imgName, status) {
     <div class="user" id="user${id}">
         <div class="user__info">
             <div class="user__details">
-                <img src="${imgName}" alt="Profile Picture">
+                <img src="${apiURL}/get_image/${imgName}" alt="Profile Picture">
                 <h3>${name}</h3>
                 <div class="user__btns" id="user__btns${id}">
                     <button onclick="updateUser(event, ${id}, '${name}')">Edit</button>
@@ -423,7 +420,12 @@ function activateSched(e, uid, stat) {
   const timeInput = document.getElementById(`time-${uid}`);
 
   // Validate date and time
-  if (!dateInput || !timeInput || !dateInput.textContent || !timeInput.textContent) {
+  if (
+    !dateInput ||
+    !timeInput ||
+    !dateInput.textContent ||
+    !timeInput.textContent
+  ) {
     alert("Please set both date and time before activating the schedule.");
     return;
   }
@@ -443,7 +445,6 @@ function activateSched(e, uid, stat) {
   patchRequest.send();
 }
 
-
 // Functions to open the modal
 function openUpdateModal(name) {
   // Check if the modal already exists
@@ -454,13 +455,7 @@ function openUpdateModal(name) {
           <form id="updateUserForm" class="userForm update">
               <h2 id="closeUpdateUserForm" class="closeUserForm" onclick="closeModal()">&times;</h2>
               <label>Name: <input type="text" id="updatedUserName" name="updatedUserName" placeholder="Enter name" value="${name}" required/></label>
-              <!-- <input type="file" id="updatedUserImg" name="updatedUserImg" /> -->
-              <label>Img Addr: <input 
-                type="text" 
-                id="updatedUserImg" 
-                name="updatedUserImg"
-                placeholder="Image Address"
-              /> </label>
+              <input type="file" id="updatedUserImg" name="updatedUserImg" />
               <button type="submit">Update</button>
           </form>
       </div>
@@ -518,7 +513,7 @@ function openSetSchedModal(date, time, hour, min) {
     const today = now.toLocaleDateString("en-CA");
 
     // Get the current time and add 10 minutes
-    now.setMinutes(now.getMinutes() + 5);
+    now.setMinutes(now.getMinutes() + 1);
     const futureHours = String(now.getHours()).padStart(2, "0");
     const futureMinutes = String(now.getMinutes()).padStart(2, "0");
     const futureTime = `${futureHours}:${futureMinutes}`;
@@ -538,7 +533,7 @@ function openSetSchedModal(date, time, hour, min) {
                 <p>Step:</p>
                 <input class="step" type="number" id="setHour" name="setHour" value="${hour}" min="0"/>
                 <small>:</small> 
-                <input class="step" type="number" id="setMin" name="setMin" value="${min}" min="5"/>
+                <input class="step" type="number" id="setMin" name="setMin" value="${min}" min="1"/>
                 <button type="submit">Submit</button>
             </form>
         </div>
@@ -640,3 +635,4 @@ function addRecordElements(id, legend, uuid, label, sched, taken, status) {
 
 // Trigger the fetch operation
 fetchUsers();
+
