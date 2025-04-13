@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MediMinder</title>
+    <link rel="stylesheet" href="./output.css" />
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <!-- HEADER -->
+    <header class="header bg-white py-[6px] shadow-below relative z-10">
+      <div class="container">
+        <div class="header__wrapper grid-between">
+          <a href="./index.html"
+            ><img src="../img/logo.png" alt="" class="logo"
+          /></a>
+          <nav class="grid-between gap-[34px] text-dark">
+            <!-- <a
+              href="product.html"
+              class="hover:text-accent duration-300 ease-in-out"
+              >Product</a
+            > -->
+            <a
+              href="./team.html"
+              class="hover:text-accent duration-300 ease-in-out"
+              >Our Team</a
+            >
+            <a href="./user.html" class="ml-[27px] group"
+              ><svg
+                width="25"
+                height="20"
+                viewBox="0 0 25 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M20.3125 19.1758H16.2109C15.8887 19.1758 15.625 18.9121 15.625 18.5899V16.6368C15.625 16.3145 15.8887 16.0508 16.2109 16.0508H20.3125C21.1768 16.0508 21.875 15.3526 21.875 14.4883V5.11332C21.875 4.24906 21.1768 3.55082 20.3125 3.55082H16.2109C15.8887 3.55082 15.625 3.28715 15.625 2.96488V1.01176C15.625 0.689491 15.8887 0.425819 16.2109 0.425819H20.3125C22.9004 0.425819 25 2.52543 25 5.11332V14.4883C25 17.0762 22.9004 19.1758 20.3125 19.1758ZM18.0176 9.36137L9.81445 1.15824C9.08203 0.425819 7.8125 0.938515 7.8125 1.98832V6.67582H1.17188C0.522461 6.67582 0 7.19828 0 7.84769V12.5352C0 13.1846 0.522461 13.7071 1.17188 13.7071H7.8125V18.3946C7.8125 19.4444 9.08203 19.9571 9.81445 19.2246L18.0176 11.0215C18.4717 10.5625 18.4717 9.82035 18.0176 9.36137Z"
+                  fill="#5D2962"
+                  class="group-hover:fill-accent duration-300 ease-in-out"
+                />
+              </svg>
+            </a>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <!-- HOME BANNER -->
+    <section
+      class="homeBanner bg-light bg-[url('../img/banner-violet.png')] bg-cover bg-center bg-no-repeat animate-bgSlide relative z-0 py-5 max-h-[659px]"
+    >
+      <div class="container">
+        <div
+          class="homeBanner__wrapper grid items-center justify-between grid-flow-col grid-cols-[1fr_1fr] gap-10"
+        >
+          <div
+            data-aos="fade-right"
+            class="homeBanner__text flex flex-col justify-start items-start gap-[36px] max-w-[500px]"
+          >
+            <h1 class="text-primary mb-[-24px]">MediMinder</h1>
+            <h4 class="text-accent italic">
+              “<strong>TAGAK</strong> remind for better health outcomes”
+            </h4>
+            <p>
+              Managing medication shouldn't be a struggle. MediMinder empowers
+              users to stay consistent with their health routines through smart,
+              timely support—helping build better habits and improve overall
+              wellness.
+            </p>
+            <div
+              class="homeBanner__btn flex flex-wrap justify-between gap-x-[41px] gap-y-[11px]"
+            >
+              <a href="./user.html" class="btn accent">Get Started</a>
+              <a href="#about" class="btn gray">Learn More</a>
+            </div>
+          </div>
+
+          <img
+            data-aos="fade-left"
+            src="../img/home-banner.png"
+            alt=""
+            class="w-full"
+          />
+          <!-- <img
+            src="../img/banner-primary.png"
+            alt=""
+            class="absolute right-0 top-[-10px] z-[-1] md:hidden lg:block w-[50%]"
+          /> -->
+        </div>
+      </div>
+    </section>
+
+    <!-- HOME ABOUT -->
+    <section
+      id="about"
+      class="homeAbout relative bg-white shadow-top z-10 py-24"
+    >
+      <div class="container">
+        <div
+          data-aos="fade-right"
+          class="homeAbout__wrapper grid grid-flow-col justify-items-center items-center grid-cols-[1fr_2fr] gap-20 px-[131px]"
+        >
+          <img src="../img/device-clipart.png" alt="" />
+          <div
+            class="homeAbout__text grid items-center justify-items-start gap-[24px]"
+          >
+            <h2 class="text-primary">About the Device</h2>
+            <p>
+              MediMinder is an IoT device designed to help maintenance
+              medication users stay on track with their prescribed regimens. By
+              integrating real-time reminders, adherence tracking, and
+              medication storage, MediMinder aims to improve health outcomes
+              through habit formation and behavioral change.
+            </p>
+            <a href="team.html" class="btn primary"
+              >Meet the faces behind MediMinder →</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOME WHY -->
+    <section class="homeWhy relative bg-light z-10 py-24">
+      <div class="container">
+        <div
+          data-aos="fade-left"
+          class="homeWhy__wrapper grid items-center gap-8 max-w-[800px] mx-auto text-start"
+        >
+          <h2 class="text-accent">Why Choose MediMinder?</h2>
+          <p class="text-justify">
+            MediMinder is designed with resilience, ensuring that patients can
+            rely on a durable and effective solution for managing their
+            medication schedules. Our commitment to innovativeness drives us to
+            develop a smart, user-friendly device that enhances medication
+            adherence through technology. Rooted in social responsibility, we
+            aim to address the real challenges faced by individuals with chronic
+            conditions, providing them with a practical tool to improve their
+            health. Upholding excellence, we strive to create a high-quality,
+            reliable device that meets the needs of patients, healthcare
+            providers, and future medical advancements.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT FEATURES -->
+    <section class="aboutFeatures relative bg-white z-10 py-24">
+      <div class="container" data-aos="fade-down">
+        <h2 class="text-primary text-center mb-[43px]">Key Features</h2>
+        <div
+          class="aboutFeatures__wrapper grid grid-flow-col justify-items-center items-center gap-5"
+        >
+          <div class="featureCard">
+            <img src="../img/reminder.png" alt="" />
+            <span class="text-accent">Smart<br />Reminders</span>
+            <p>
+              Visual, sound, and vibration alerts to ensure timely medication
+              intake.
+            </p>
+          </div>
+          <div class="featureCard">
+            <img src="../img/monitor.png" alt="" />
+            <span class="text-accent">Adherence<br />Monitoring</span>
+            <p>
+              Tracks and records medication-taking behavior using an infrared
+              detection system.
+            </p>
+          </div>
+          <div class="featureCard">
+            <img src="../img/pills.png" alt="" />
+            <span class="text-accent">Medication<br />Storage</span>
+            <p>
+              Organized compartments for secure and easy access to prescribed
+              drugs.
+            </p>
+          </div>
+          <div class="featureCard">
+            <img src="../img/interface.png" alt="" />
+            <span class="text-accent">User-Friendly Interface</span>
+            <p>Simple controls and an intuitive LED guidance system.</p>
+          </div>
+          <div class="featureCard">
+            <img src="../img/cloud.png" alt="" />
+            <span class="text-accent">Cloud-Based Data Tracking</span>
+            <p>
+              Syncs adherence records with an online platform for easy
+              monitoring by users and caregivers.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT STEPS -->
+    <section class="aboutSteps relative bg-white z-10 pb-24">
+      <div class="container">
+        <div
+          data-aos="fade-up"
+          class="aboutSteps__wrapper bg-alt text-light rounded-[20px] py-[51px] px-[53px] grid grid-flow-col justify-items-center items-center gap-8"
+        >
+          <img src="../img/device-real.png" alt="" />
+          <div class="aboutSteps__text grid gap-9 max-w-[780px]">
+            <h2>Steps How To Use</h2>
+            <ol class="list-decimal list-inside space-y-2 grid gap-2">
+              <li>
+                Set Up & Register: Visit the MediMinder website, log in and
+                customize your medication schedule and user profile.
+              </li>
+              <li>
+                Load & Sync: Place your medications in the designated
+                compartments, then turn on the device to sync with your
+                schedule.
+              </li>
+              <li>
+                Receive Alerts & Take Medications: When reminded, take your
+                medication as instructed. The device will automatically track
+                your adherence, and will not stop reminding until you’ve taken
+                your medication.
+              </li>
+              <li>
+                Monitor Progress: Log in to the website anytime to check your
+                adherence history and receive recommendations.
+                Relatives/caregivers or even doctors may be given with the code
+                to assist in monitoring your adherence.
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="CTA relative bg-primary z-10 py-16">
+      <div class="container">
+        <div
+          data-aos="fade"
+          class="CTA__wrapper grid justify-items-center items-center gap-4 px-[131px] text-light"
+        >
+          <h4 class="mb-[-12px]">Start Tracking Today!</h4>
+          <p>Never miss out your pills again.</p>
+          <a href="./user.html" class="btn accent">Sign Up</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer relative bg-dark z-20 py-4">
+      <div class="container">
+        <div
+          class="footer__wrapper text-light/80 flex justify-between items-center gap-10"
+        >
+          <h6>© 2025 MediMinder. All rights reserved.</h6>
+          <h6>
+            JP Rizal Extension, West Rembo, 1644 City of Taguig, Metro Manila,
+            Philippines.
+          </h6>
+          <div class="footer__contacts flex gap-4">
+            <a href="mailto:aquinojhorizrodel@gmail.com" class="group"
+              ><svg
+                width="25"
+                height="25"
+                viewBox="0 0 25 25"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  class="group-hover:fill-accent duration-300 ease-in-out fill-light/80"
+                  d="M24.5264 9.31641C24.7168 9.16504 25 9.30664 25 9.5459V19.5312C25 20.8252 23.9502 21.875 22.6562 21.875H2.34375C1.0498 21.875 0 20.8252 0 19.5312V9.55078C0 9.30664 0.27832 9.16992 0.473633 9.32129C1.56738 10.1709 3.01758 11.25 7.99805 14.8682C9.02832 15.6201 10.7666 17.2021 12.5 17.1924C14.2432 17.207 16.0156 15.5908 17.0068 14.8682C21.9873 11.25 23.4326 10.166 24.5264 9.31641ZM12.5 15.625C13.6328 15.6445 15.2637 14.1992 16.084 13.6035C22.5635 8.90137 23.0566 8.49121 24.5508 7.31934C24.834 7.09961 25 6.75781 25 6.39648V5.46875C25 4.1748 23.9502 3.125 22.6562 3.125H2.34375C1.0498 3.125 0 4.1748 0 5.46875V6.39648C0 6.75781 0.166016 7.09473 0.449219 7.31934C1.94336 8.48633 2.43652 8.90137 8.91602 13.6035C9.73633 14.1992 11.3672 15.6445 12.5 15.625Z"
+                  fill="white"
+                />
+              </svg> </a
+            ><a href="tel:+63911754592" class="group"
+              ><svg
+                width="25"
+                height="25"
+                viewBox="0 0 25 25"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g clip-path="url(#clip0_41_758)">
+                  <path
+                    class="group-hover:fill-accent duration-300 ease-in-out fill-light/80"
+                    d="M24.2866 17.6661L18.8179 15.3223C18.5843 15.2227 18.3246 15.2018 18.078 15.2625C17.8315 15.3233 17.6113 15.4625 17.4507 15.6592L15.0288 18.6182C11.2279 16.8261 8.16904 13.7673 6.37695 9.96635L9.33594 7.54448C9.53305 7.38417 9.67256 7.164 9.73335 6.91731C9.79414 6.67062 9.7729 6.41083 9.67285 6.17729L7.3291 0.708542C7.21929 0.456788 7.02508 0.25124 6.77996 0.12734C6.53483 0.00344002 6.25416 -0.0310452 5.98633 0.0298307L0.908203 1.20171C0.649985 1.26133 0.419602 1.40672 0.254656 1.61415C0.0897096 1.82157 -5.94829e-05 2.07878 2.95713e-08 2.3438C2.95713e-08 14.8682 10.1514 25 22.6562 25C22.9213 25.0002 23.1787 24.9105 23.3862 24.7455C23.5937 24.5806 23.7392 24.3501 23.7988 24.0918L24.9707 19.0137C25.0312 18.7446 24.996 18.4628 24.8711 18.2168C24.7463 17.9708 24.5396 17.7761 24.2866 17.6661Z"
+                    fill="white"
+                  />
+                </g>
+                <defs>
+                  <clipPath id="clip0_41_758">
+                    <rect width="25" height="25" fill="white" />
+                  </clipPath>
+                </defs>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        once: false, // allows repeating animation every time it's scrolled into view
+        duration: 1000, // animation duration in ms
+      });
+    </script>
+  </body>
+</html>

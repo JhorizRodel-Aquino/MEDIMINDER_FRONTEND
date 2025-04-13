@@ -1,0 +1,110 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply overflow-x-hidden font-sans text-dark bg-white;
+  }
+  .container {
+    @apply max-w-[1600px] w-full px-20 mx-auto;
+  }
+  h1 {
+    @apply text-7xl font-bold;
+  }
+  h2 {
+    @apply text-5xl font-bold;
+  }
+  h3 {
+    @apply text-4xl font-bold;
+  }
+  h4 {
+    @apply text-2xl;
+  }
+  h5,
+  .btn,
+  li {
+    @apply text-lg;
+  }
+  span {
+    @apply text-xl;
+  }
+  h6 {
+    @apply text-sm;
+  }
+  p, .demographic li {
+    @apply text-base;
+  }
+
+  /* .homeBanner::after {
+    @apply content-[''] absolute inline-block top-0 right-0 w-[50%] h-full bg-[#af8dce] z-[-20];
+  }
+  .homeBanner::before {
+    @apply content-[''] absolute inline-block  max-w-[1600px] w-full top-0 left-[50%] -translate-x-[50%] h-full bg-light z-[-10];
+  } */
+}
+
+@layer components {
+  .grid-between {
+    @apply grid grid-flow-col justify-between items-center justify-items-center;
+  }
+
+  .shadow-below {
+    @apply shadow-[0px_6px_10px_4px_rgba(0,_0,_0,_0.15),_0px_2px_3px_0px_rgba(0,_0,_0,_0.3)];
+  }
+
+  .shadow-top {
+    @apply shadow-[0px_-6px_10px_4px_rgba(0,_0,_0,_0.15),_0px_-2px_3px_0px_rgba(0,_0,_0,_0.3)];
+  }
+
+  .btn {
+    @apply py-[10px] inline-block px-[26px] rounded-[8px] font-bold border-4 duration-300 ease-in-out;
+  }
+
+  .btn.primary {
+    @apply bg-primary text-light border-primary hover:bg-transparent hover:text-primary;
+  }
+  .btn.accent {
+    @apply bg-accent text-dark border-accent hover:bg-transparent hover:text-accent;
+  }
+  .btn.gray {
+    @apply bg-gray text-black/45 border-gray hover:bg-transparent;
+  }
+
+  .featureCard {
+    @apply px-[23px] py-[25px] grid grid-rows-[.5fr_.4fr_1fr] gap-[20px] items-start justify-items-center bg-primary rounded-[20px] h-[361px] text-light text-center;
+  }
+
+  .missionCard {
+    @apply grid gap-6 py-[55px] px-[35px] rounded-[20px] items-center justify-items-center text-center;
+  }
+
+  .personCard {
+    @apply grid items-center justify-items-center gap-4;
+  }
+
+  .nav a {
+    @apply w-full px-32 hover:bg-gray/20 duration-300 ease-in-out cursor-pointer;
+  }
+  .nav a li {
+    @apply flex items-center gap-2 py-[7px];
+  }
+
+  .nav a.open {
+    @apply bg-primary hover:bg-primary;
+  }
+  .schedCard {
+    @apply w-full grid grid-flow-col items-center justify-items-center grid-cols-[10%_25%_20%_20%_25%] bg-white rounded-[10px];
+  }
+  .schedRecords {
+    @apply grid justify-items-start items-center gap-[9px]  w-full overflow-y-auto ;
+  }
+
+  .demographic__col {
+    @apply grid gap-[2px] items-start justify-items-start;
+}
+}
+
+
