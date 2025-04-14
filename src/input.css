@@ -34,7 +34,8 @@
   h6 {
     @apply text-sm;
   }
-  p, .demographic li {
+  p,
+  .demographic li {
     @apply text-base;
   }
 
@@ -60,7 +61,7 @@
   }
 
   .btn {
-    @apply py-[10px] inline-block px-[26px] rounded-[8px] font-bold border-4 duration-300 ease-in-out;
+    @apply py-[10px] inline-block px-[26px] rounded-[8px] font-bold border-4 duration-300 ease-in-out cursor-pointer;
   }
 
   .btn.primary {
@@ -99,12 +100,17 @@
     @apply w-full grid grid-flow-col items-center justify-items-center grid-cols-[10%_25%_20%_20%_25%] bg-white rounded-[10px];
   }
   .schedRecords {
-    @apply grid justify-items-start items-center gap-[9px]  w-full overflow-y-auto ;
+    @apply grid justify-items-start items-center gap-[9px]  w-full overflow-y-auto;
   }
 
   .demographic__col {
     @apply grid gap-[2px] items-start justify-items-start;
-}
-}
+  }
 
-
+  .tabBtn {
+    @apply py-[10px] w-full text-center border-b-0;
+  }
+  .tabBtn.open {
+    @apply border-b-4 border-accent;
+  }
+}

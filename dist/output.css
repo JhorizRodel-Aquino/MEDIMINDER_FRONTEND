@@ -504,7 +504,8 @@ h6{
   line-height: 1.25rem;
 }
 
-p, .demographic li{
+p,
+  .demographic li{
   font-size: 1rem;
   line-height: 1.5rem;
 }
@@ -672,6 +673,7 @@ p, .demographic li{
 
 .btn{
   display: inline-block;
+  cursor: pointer;
   border-radius: 8px;
   border-width: 4px;
   padding-top: 10px;
@@ -823,6 +825,20 @@ p, .demographic li{
   gap: 2px;
 }
 
+.tabBtn{
+  width: 100%;
+  border-bottom-width: 0px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+.tabBtn.open{
+  border-bottom-width: 4px;
+  --tw-border-opacity: 1;
+  border-color: rgb(255 184 76 / var(--tw-border-opacity));
+}
+
 .absolute{
   position: absolute;
 }
@@ -847,10 +863,6 @@ p, .demographic li{
   top: -10px;
 }
 
-.isolate{
-  isolation: isolate;
-}
-
 .z-0{
   z-index: 0;
 }
@@ -872,44 +884,14 @@ p, .demographic li{
   margin-right: auto;
 }
 
-.my-\[-8px\]{
-  margin-top: -8px;
-  margin-bottom: -8px;
-}
-
-.my-\[-2\]{
-  margin-top: -2;
-  margin-bottom: -2;
-}
-
-.my-\[-2px\]{
-  margin-top: -2px;
-  margin-bottom: -2px;
-}
-
-.my-\[-4px\]{
-  margin-top: -4px;
-  margin-bottom: -4px;
-}
-
-.my-\[-4\=\`0px\]{
-  margin-top: -4=`0px;
-  margin-bottom: -4=`0px;
-}
-
-.my-\[-10px\]{
-  margin-top: -10px;
-  margin-bottom: -10px;
-}
-
-.my-\[-px\]{
-  margin-top: -px;
-  margin-bottom: -px;
-}
-
 .my-\[-6px\]{
   margin-top: -6px;
   margin-bottom: -6px;
+}
+
+.my-\[-8px\]{
+  margin-top: -8px;
+  margin-bottom: -8px;
 }
 
 .mb-12{
@@ -944,16 +926,8 @@ p, .demographic li{
   margin-top: 1.25rem;
 }
 
-.mb-5{
-  margin-bottom: 1.25rem;
-}
-
-.mb-3{
-  margin-bottom: 0.75rem;
-}
-
-.mb-4{
-  margin-bottom: 1rem;
+.block{
+  display: block;
 }
 
 .flex{
@@ -1038,6 +1012,10 @@ p, .demographic li{
   animation: bgSlide 1s ease-out forwards;
 }
 
+.resize{
+  resize: both;
+}
+
 .list-inside{
   list-style-position: inside;
 }
@@ -1050,12 +1028,12 @@ p, .demographic li{
   list-style-type: disc;
 }
 
-.grid-flow-row{
-  grid-auto-flow: row;
-}
-
 .grid-flow-col{
   grid-auto-flow: column;
+}
+
+.grid-cols-2{
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .grid-cols-4{
@@ -1076,10 +1054,6 @@ p, .demographic li{
 
 .grid-cols-\[5fr_1fr\]{
   grid-template-columns: 5fr 1fr;
-}
-
-.grid-cols-2{
-  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .flex-col{
@@ -1150,6 +1124,10 @@ p, .demographic li{
   gap: 1.25rem;
 }
 
+.gap-6{
+  gap: 1.5rem;
+}
+
 .gap-8{
   gap: 2rem;
 }
@@ -1170,10 +1148,6 @@ p, .demographic li{
   gap: 36px;
 }
 
-.gap-6{
-  gap: 1.5rem;
-}
-
 .gap-x-\[41px\]{
   -moz-column-gap: 41px;
        column-gap: 41px;
@@ -1187,10 +1161,6 @@ p, .demographic li{
   --tw-space-y-reverse: 0;
   margin-top: calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(0.5rem * var(--tw-space-y-reverse));
-}
-
-.overflow-auto{
-  overflow: auto;
 }
 
 .overflow-hidden{
@@ -1221,10 +1191,6 @@ p, .demographic li{
   border-radius: 0px;
 }
 
-.rounded-\[20\]{
-  border-radius: 20;
-}
-
 .rounded-b-\[10px\]{
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
@@ -1243,6 +1209,10 @@ p, .demographic li{
 .rounded-t-\[10px\]{
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
+}
+
+.border{
+  border-width: 1px;
 }
 
 .border-b{
@@ -1301,14 +1271,24 @@ p, .demographic li{
   background-color: rgb(93 41 98 / 0.3);
 }
 
+.bg-red-200{
+  --tw-bg-opacity: 1;
+  background-color: rgb(254 202 202 / var(--tw-bg-opacity));
+}
+
 .bg-white{
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
-.bg-lime-300{
+.bg-yellow-100{
   --tw-bg-opacity: 1;
-  background-color: rgb(190 242 100 / var(--tw-bg-opacity));
+  background-color: rgb(254 249 195 / var(--tw-bg-opacity));
+}
+
+.bg-yellow-200{
+  --tw-bg-opacity: 1;
+  background-color: rgb(254 240 138 / var(--tw-bg-opacity));
 }
 
 .bg-\[url\(\'\.\.\/img\/banner-violet\.png\'\)\]{
@@ -1346,6 +1326,16 @@ p, .demographic li{
   padding-right: 8rem;
 }
 
+.px-5{
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+.px-8{
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
 .px-9{
   padding-left: 2.25rem;
   padding-right: 2.25rem;
@@ -1364,11 +1354,6 @@ p, .demographic li{
 .py-1{
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
-}
-
-.py-12{
-  padding-top: 3rem;
-  padding-bottom: 3rem;
 }
 
 .py-16{
@@ -1401,11 +1386,6 @@ p, .demographic li{
   padding-bottom: 2rem;
 }
 
-.py-\[10px\]{
-  padding-top: 10px;
-  padding-bottom: 10px;
-}
-
 .py-\[51px\]{
   padding-top: 51px;
   padding-bottom: 51px;
@@ -1419,26 +1399,6 @@ p, .demographic li{
 .py-\[6px\]{
   padding-top: 6px;
   padding-bottom: 6px;
-}
-
-.py-10{
-  padding-top: 2.5rem;
-  padding-bottom: 2.5rem;
-}
-
-.px-8{
-  padding-left: 2rem;
-  padding-right: 2rem;
-}
-
-.py-11{
-  padding-top: 2.75rem;
-  padding-bottom: 2.75rem;
-}
-
-.px-5{
-  padding-left: 1.25rem;
-  padding-right: 1.25rem;
 }
 
 .pb-24{
@@ -1494,6 +1454,22 @@ p, .demographic li{
   color: rgb(93 41 98 / var(--tw-text-opacity));
 }
 
+.outline{
+  outline-style: solid;
+}
+
+.filter{
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+
+.transition{
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
 .duration-300{
   transition-duration: 300ms;
 }
@@ -1522,5 +1498,3 @@ p, .demographic li{
     display: block;
   }
 }
-
-

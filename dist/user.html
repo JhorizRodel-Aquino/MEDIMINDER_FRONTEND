@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MediMinder</title>
     <link rel="stylesheet" href="./output.css" />
+    <link rel="stylesheet" href="./modal.css" />
     <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
 
   <body class="flex flex-col h-dvh bg-light">
@@ -39,7 +41,10 @@
     <section class="flex-1 h-full overflow-y-hidden text-dark" id="section">
       <div class="wrapper flex h-full">
         <aside class="bg-dark h-full w-[400px] py-6 text-light">
-          <div class="panel__wrapper grid justify-items-center items-start">
+          <div
+            id="panel__wrapper"
+            class="panel__wrapper grid justify-items-center items-start"
+          >
             <div
               class="profile w-[250px] rounded-full overflow-hidden aspect-square mb-[10px]"
             >
@@ -73,10 +78,7 @@
           </div>
         </aside>
 
-        <div
-          id="records"
-          class="main h-full w-[60%] max-w-[1000px] py-8 mx-auto"
-        >
+        <div id="main" class="main h-full w-[60%] max-w-[1000px] py-8 mx-auto">
           <div class="main__wrapper h-full flex flex-col gap-3 justify-start">
             <div
               class="schedContols grid grid-flow-col grid-cols-[5fr_1fr] gap-2 justify-between items-center"
@@ -113,13 +115,13 @@
             <div
               class="schedTabs grid grid-flow-col grid-cols-5 rounded-[10px] bg-white"
             >
-              <span class="py-[10px] w-full text-center rounded-l-[10px]"
+              <span class="tabBtn rounded-l-[10px]"
                 >A</span
               >
-              <span class="py-[10px] w-full text-center">B</span>
-              <span class="py-[10px] w-full text-center">C</span>
-              <span class="py-[10px] w-full text-center">D</span>
-              <span class="py-[10px] w-full text-center rounded-r-[10px]"
+              <span class="tabBtn open">B</span>
+              <span class="tabBtn">C</span>
+              <span class="tabBtn">D</span>
+              <span class="tabBtn rounded-r-[10px]"
                 >E</span
               >
             </div>
@@ -139,216 +141,7 @@
               </div>
             </div>
 
-            <div class="schedRecords">
-              <div class="schedCard">
-                <div class="grid justify-items-center items-center">
-                  <h6>Apr</h6>
-                  <h4 class="text-alt font-bold my-[-8px]">14</h4>
-                  <h6>Mon</h6>
-                </div>
-                <p>Paracetamol</p>
-                <p>7:00 AM</p>
-                <p>7:05 AM</p>
-                <p>Taken On Time</p>
-              </div>
-              <div class="schedCard">
-                <div class="grid justify-items-center items-center">
-                  <h6>Apr</h6>
-                  <h4 class="text-alt font-bold my-[-8px]">14</h4>
-                  <h6>Mon</h6>
-                </div>
-                <p>Paracetamol</p>
-                <p>7:00 AM</p>
-                <p>7:05 AM</p>
-                <p>Taken On Time</p>
-              </div>
-              <div class="schedCard">
-                <div class="grid justify-items-center items-center">
-                  <h6>Apr</h6>
-                  <h4 class="text-alt font-bold my-[-8px]">14</h4>
-                  <h6>Mon</h6>
-                </div>
-                <p>Paracetamol</p>
-                <p>7:00 AM</p>
-                <p>7:05 AM</p>
-                <p>Taken On Time</p>
-              </div>
-              <div class="schedCard">
-                <div class="grid justify-items-center items-center">
-                  <h6>Apr</h6>
-                  <h4 class="text-alt font-bold my-[-8px]">14</h4>
-                  <h6>Mon</h6>
-                </div>
-                <p>Paracetamol</p>
-                <p>7:00 AM</p>
-                <p>7:05 AM</p>
-                <p>Taken On Time</p>
-              </div>
-              <div class="schedCard">
-                <div class="grid justify-items-center items-center">
-                  <h6>Apr</h6>
-                  <h4 class="text-alt font-bold my-[-8px]">14</h4>
-                  <h6>Mon</h6>
-                </div>
-                <p>Paracetamol</p>
-                <p>7:00 AM</p>
-                <p>7:05 AM</p>
-                <p>Taken On Time</p>
-              </div>
-              <div class="schedCard">
-                <div class="grid justify-items-center items-center">
-                  <h6>Apr</h6>
-                  <h4 class="text-alt font-bold my-[-8px]">14</h4>
-                  <h6>Mon</h6>
-                </div>
-                <p>Paracetamol</p>
-                <p>7:00 AM</p>
-                <p>7:05 AM</p>
-                <p>Taken On Time</p>
-              </div>
-              <div class="schedCard">
-                <div class="grid justify-items-center items-center">
-                  <h6>Apr</h6>
-                  <h4 class="text-alt font-bold my-[-8px]">14</h4>
-                  <h6>Mon</h6>
-                </div>
-                <p>Paracetamol</p>
-                <p>7:00 AM</p>
-                <p>7:05 AM</p>
-                <p>Taken On Time</p>
-              </div>
-              <div class="schedCard">
-                <div class="grid justify-items-center items-center">
-                  <h6>Apr</h6>
-                  <h4 class="text-alt font-bold my-[-8px]">14</h4>
-                  <h6>Mon</h6>
-                </div>
-                <p>Paracetamol</p>
-                <p>7:00 AM</p>
-                <p>7:05 AM</p>
-                <p>Taken On Time</p>
-              </div>
-              <div class="schedCard">
-                <div class="grid justify-items-center items-center">
-                  <h6>Apr</h6>
-                  <h4 class="text-alt font-bold my-[-8px]">14</h4>
-                  <h6>Mon</h6>
-                </div>
-                <p>Paracetamol</p>
-                <p>7:00 AM</p>
-                <p>7:05 AM</p>
-                <p>Taken On Time</p>
-              </div>
-              <div class="schedCard">
-                <div class="grid justify-items-center items-center">
-                  <h6>Apr</h6>
-                  <h4 class="text-alt font-bold my-[-8px]">14</h4>
-                  <h6>Mon</h6>
-                </div>
-                <p>Paracetamol</p>
-                <p>7:00 AM</p>
-                <p>7:05 AM</p>
-                <p>Taken On Time</p>
-              </div>
-              <div class="schedCard">
-                <div class="grid justify-items-center items-center">
-                  <h6>Apr</h6>
-                  <h4 class="text-alt font-bold my-[-8px]">14</h4>
-                  <h6>Mon</h6>
-                </div>
-                <p>Paracetamol</p>
-                <p>7:00 AM</p>
-                <p>7:05 AM</p>
-                <p>Taken On Time</p>
-              </div>
-              <div class="schedCard">
-                <div class="grid justify-items-center items-center">
-                  <h6>Apr</h6>
-                  <h4 class="text-alt font-bold my-[-8px]">14</h4>
-                  <h6>Mon</h6>
-                </div>
-                <p>Paracetamol</p>
-                <p>7:00 AM</p>
-                <p>7:05 AM</p>
-                <p>Taken On Time</p>
-              </div>
-              <div class="schedCard">
-                <div class="grid justify-items-center items-center">
-                  <h6>Apr</h6>
-                  <h4 class="text-alt font-bold my-[-8px]">14</h4>
-                  <h6>Mon</h6>
-                </div>
-                <p>Paracetamol</p>
-                <p>7:00 AM</p>
-                <p>7:05 AM</p>
-                <p>Taken On Time</p>
-              </div>
-              <div class="schedCard">
-                <div class="grid justify-items-center items-center">
-                  <h6>Apr</h6>
-                  <h4 class="text-alt font-bold my-[-8px]">14</h4>
-                  <h6>Mon</h6>
-                </div>
-                <p>Paracetamol</p>
-                <p>7:00 AM</p>
-                <p>7:05 AM</p>
-                <p>Taken On Time</p>
-              </div>
-              <div class="schedCard">
-                <div class="grid justify-items-center items-center">
-                  <h6>Apr</h6>
-                  <h4 class="text-alt font-bold my-[-8px]">14</h4>
-                  <h6>Mon</h6>
-                </div>
-                <p>Paracetamol</p>
-                <p>7:00 AM</p>
-                <p>7:05 AM</p>
-                <p>Taken On Time</p>
-              </div>
-              <div class="schedCard">
-                <div class="grid justify-items-center items-center">
-                  <h6>Apr</h6>
-                  <h4 class="text-alt font-bold my-[-8px]">14</h4>
-                  <h6>Mon</h6>
-                </div>
-                <p>Paracetamol</p>
-                <p>7:00 AM</p>
-                <p>7:05 AM</p>
-                <p>Taken On Time</p>
-              </div>
-              <div class="schedCard">
-                <div class="grid justify-items-center items-center">
-                  <h6>Apr</h6>
-                  <h4 class="text-alt font-bold my-[-8px]">14</h4>
-                  <h6>Mon</h6>
-                </div>
-                <p>Paracetamol</p>
-                <p>7:00 AM</p>
-                <p>7:05 AM</p>
-                <p>Taken On Time</p>
-              </div>
-              <div class="schedCard">
-                <div class="grid justify-items-center items-center">
-                  <h6>Apr</h6>
-                  <h4 class="text-alt font-bold my-[-8px]">14</h4>
-                  <h6>Mon</h6>
-                </div>
-                <p>Paracetamol</p>
-                <p>7:00 AM</p>
-                <p>7:05 AM</p>
-                <p>Taken On Time</p>
-              </div>
-              <div class="schedCard">
-                <div class="grid justify-items-center items-center">
-                  <h6>Apr</h6>
-                  <h4 class="text-alt font-bold my-[-8px]">14</h4>
-                  <h6>Mon</h6>
-                </div>
-                <p>Paracetamol</p>
-                <p>7:00 AM</p>
-                <p>7:05 AM</p>
-                <p>Taken On Time</p>
-              </div>
+            <div id="schedRecords" class="schedRecords">
               <div class="schedCard">
                 <div class="grid justify-items-center items-center">
                   <h6>Apr</h6>
@@ -364,10 +157,7 @@
           </div>
         </div>
 
-        <div
-          id="report"
-          class="main h-full w-[60%] max-w-[1000px] py-8 mx-auto hidden"
-        >
+        <div class="main h-full w-[60%] max-w-[1000px] py-8 mx-auto hidden">
           <div class="main__wrapper h-full flex flex-col gap-6 justify-start">
             <div class="demographic px-9 py-5 bg-primary/30 rounded-[20px]">
               <h4 class="font-bold">User Demographics</h4>
@@ -398,7 +188,9 @@
               </div>
             </div>
 
-            <div class="analytics grid grid-flow-col grid-cols-2 gap-6 overflow-y-auto">
+            <div
+              class="analytics grid grid-flow-col grid-cols-2 gap-6 overflow-y-auto"
+            >
               <div class="summary bg-white rounded-[20px] py-5 px-5">
                 <div
                   class="summaryCard grid justify-items-center items-center gap-6"
@@ -450,9 +242,11 @@
               </div>
               <div class="summary bg-white rounded-[20px] py-5 px-5">
                 <div
-                  class="summaryCard grid justify-items-center items-center gap-6"
+                  class="summaryCard grid justify-items-center items-center gap-6 bg-yellow-200"
                 >
-                  <h4 class="text-accent font-bold text-center">Weekly Missed Schedule</h4>
+                  <h4 class="text-accent font-bold text-center bg-red-200">
+                    Weekly Missed Schedule
+                  </h4>
                 </div>
               </div>
             </div>
@@ -460,5 +254,7 @@
         </div>
       </div>
     </section>
+
+    <script src="./js/user.js"></script>
   </body>
 </html>
