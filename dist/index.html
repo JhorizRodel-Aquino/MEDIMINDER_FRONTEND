@@ -14,9 +14,9 @@
       <div class="container">
         <div class="header__wrapper grid-between">
           <a href="./index.html"
-            ><img src="../img/logo.png" alt="" class="logo"
+            ><img src="../img/logo.png" alt="" class="logo w-[130px] sm:w-auto"
           /></a>
-          <nav class="grid-between gap-[34px] text-dark">
+          <nav class="grid-between gap-4 md:gap-[34px] text-dark">
             <!-- <a
               href="product.html"
               class="hover:text-accent duration-300 ease-in-out"
@@ -27,7 +27,7 @@
               class="hover:text-accent duration-300 ease-in-out"
               >Our Team</a
             >
-            <a href="./log.html" class="ml-[27px] group"
+            <a href="./log.html" class="group"
               ><svg
                 width="25"
                 height="20"
@@ -49,28 +49,28 @@
 
     <!-- HOME BANNER -->
     <section
-      class="homeBanner bg-light bg-[url('../img/banner-violet.png')] bg-cover bg-center bg-no-repeat animate-bgSlide relative z-0 py-5 max-h-[659px]"
+      class="homeBanner bg-light lg:bg-[url('../img/banner-violet.png')] bg-cover bg-center bg-no-repeat animate-bgSlide relative z-0 py-5 max-h-[659px]"
     >
       <div class="container">
         <div
-          class="homeBanner__wrapper grid items-center justify-between grid-flow-col grid-cols-[1fr_1fr] gap-10"
+          class="homeBanner__wrapper grid items-center justify-between grid-flow-col grid-cols-1 lg:grid-cols-2 gap-10"
         >
           <div
             data-aos="fade-right"
-            class="homeBanner__text flex flex-col justify-start items-start gap-[36px] max-w-[500px]"
+            class="homeBanner__text flex flex-col justify-start items-start gap-4 md:gap-6 lg:gap-[36px] lg:max-w-[500px] my-8 lg:my-14 w-full lg:w-auto"
           >
-            <h1 class="text-primary mb-[-24px]">MediMinder</h1>
+            <h1 class="text-primary -mb-2 md:-mb-3 lg:mb-[-24px]">MediMinder</h1>
             <h4 class="text-accent italic">
               “<strong>TAGAK</strong> remind for better health outcomes”
             </h4>
-            <p>
+            <p class="text-justify md:text-start">
               Managing medication shouldn't be a struggle. MediMinder empowers
               users to stay consistent with their health routines through smart,
               timely support—helping build better habits and improve overall
               wellness.
             </p>
             <div
-              class="homeBanner__btn flex flex-wrap justify-between gap-x-[41px] gap-y-[11px]"
+              class="homeBanner__btn flex flex-wrap justify-between gap-x-3 md:gap-x-6 lg:gap-x-[41px] gap-y-[11px]"
             >
               <a href="./user.html" class="btn accent">Get Started</a>
               <a href="#about" class="btn gray">Learn More</a>
@@ -81,7 +81,7 @@
             data-aos="fade-left"
             src="../img/home-banner.png"
             alt=""
-            class="w-full"
+            class="hidden lg:block w-full"
           />
           <!-- <img
             src="../img/banner-primary.png"
@@ -95,19 +95,22 @@
     <!-- HOME ABOUT -->
     <section
       id="about"
-      class="homeAbout relative bg-white shadow-top z-10 py-24"
+      class="homeAbout relative bg-white py-10 lg:py-24"
     >
       <div class="container">
         <div
           data-aos="fade-right"
-          class="homeAbout__wrapper grid grid-flow-col justify-items-center items-center grid-cols-[1fr_2fr] gap-20 px-[131px]"
+          class="homeAbout__wrapper grid grid-flow-row md:grid-flow-col justify-items-center items-center md:grid-cols-[auto_2fr] gap-10 lg:gap-20 max-w-[1100px] mx-auto w-full"
         >
-          <img src="../img/device-clipart.png" alt="" />
+          <div class="w-[150px] sm:w-[200px] lg:justify-self-start lg:w-auto">
+            <img class="w-full" src="../img/device-clipart.png" alt="" />
+          </div>
+
           <div
-            class="homeAbout__text grid items-center justify-items-start gap-[24px]"
+            class="homeAbout__text w-full grid items-center justify-items-start gap-4 lg:gap-[24px] lg:justify-self-end"
           >
             <h2 class="text-primary">About the Device</h2>
-            <p>
+            <p class="text-justify">
               MediMinder is an IoT device designed to help maintenance
               medication users stay on track with their prescribed regimens. By
               integrating real-time reminders, adherence tracking, and
@@ -115,7 +118,7 @@
               through habit formation and behavioral change.
             </p>
             <a href="team.html" class="btn primary"
-              >Meet the faces behind MediMinder →</a
+              >Meet the faces behind MediMinder <span class="hidden lg:block">→</span></a
             >
           </div>
         </div>
@@ -123,11 +126,11 @@
     </section>
 
     <!-- HOME WHY -->
-    <section class="homeWhy relative bg-light z-10 py-24">
+    <section class="homeWhy relative bg-light z-10 py-10 lg:py-24">
       <div class="container">
         <div
           data-aos="fade-left"
-          class="homeWhy__wrapper grid items-center gap-8 max-w-[800px] mx-auto text-start"
+          class="homeWhy__wrapper grid items-center gap-4 lg:gap-8 max-w-[800px] mx-auto text-start"
         >
           <h2 class="text-accent">Why Choose MediMinder?</h2>
           <p class="text-justify">
@@ -147,11 +150,11 @@
     </section>
 
     <!-- ABOUT FEATURES -->
-    <section class="aboutFeatures relative bg-white z-10 py-24">
+    <section class="aboutFeatures relative bg-white z-10 py-10 lg:py-24">
       <div class="container" data-aos="fade-down">
-        <h2 class="text-primary text-center mb-[43px]">Key Features</h2>
+        <h2 class="text-primary text-center  mb-[22px] lg:mb-[43px]">Key Features</h2>
         <div
-          class="aboutFeatures__wrapper grid grid-flow-col justify-items-center items-center gap-5"
+          class="aboutFeatures__wrapper flex flex-wrap justify-center gap-3 h-full"
         >
           <div class="featureCard">
             <img src="../img/reminder.png" alt="" />
@@ -195,16 +198,16 @@
     </section>
 
     <!-- ABOUT STEPS -->
-    <section class="aboutSteps relative bg-white z-10 pb-24">
+    <section class="aboutSteps relative bg-white z-10 pb-10 lg:pb-24">
       <div class="container">
         <div
           data-aos="fade-up"
-          class="aboutSteps__wrapper bg-alt text-light rounded-[20px] py-[51px] px-[53px] grid grid-flow-col justify-items-center items-center gap-8"
+          class="aboutSteps__wrapper bg-alt text-light rounded-[20px] py-[23px] lg:py-[51px] px-[25px] lg:px-[53px] grid grid-flow-col justify-items-center items-center gap-8"
         >
-          <img src="../img/device-real.png" alt="" />
-          <div class="aboutSteps__text grid gap-9 max-w-[780px]">
+          <img class="hidden lg:block" src="../img/device-real.png" alt="" />
+          <div class="aboutSteps__text grid gap-4 lg:gap-9 max-w-[780px]">
             <h2>Steps How To Use</h2>
-            <ol class="list-decimal list-inside space-y-2 grid gap-2">
+            <ol class="list-decimal list-inside space-y-2 grid gap-2 lg:text-justify">
               <li>
                 Set Up & Register: Visit the MediMinder website, log in and
                 customize your medication schedule and user profile.
@@ -233,11 +236,11 @@
     </section>
 
     <!-- CTA -->
-    <section class="CTA relative bg-primary z-10 py-16">
+    <section class="CTA relative bg-primary z-10 py-8 lg:py-16">
       <div class="container">
         <div
           data-aos="fade"
-          class="CTA__wrapper grid justify-items-center items-center gap-4 px-[131px] text-light"
+          class="CTA__wrapper grid justify-items-center items-center gap-4 text-light"
         >
           <h4 class="mb-[-12px]">Start Tracking Today!</h4>
           <p>Never miss out your pills again.</p>
@@ -250,7 +253,7 @@
     <footer class="footer relative bg-dark z-20 py-4">
       <div class="container">
         <div
-          class="footer__wrapper text-light/80 flex justify-between items-center gap-10"
+          class="footer__wrapper text-light/80 flex flex-col text-center sm:text-start sm:flex-row justify-between items-center gap-4 sm:gap-10"
         >
           <h6>© 2025 MediMinder. All rights reserved.</h6>
           <h6>

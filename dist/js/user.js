@@ -32,7 +32,8 @@ function formatTakenTime(taken) {
 
   // Reformat time and keep the date part
   let formattedTime = convertTo12HourFormat(parts[4]);
-  return `${parts[0]} ${parts[1]} ${parts[2]} ${parts[3]} ${formattedTime}`;
+  // return `${parts[0]} ${parts[1]} ${parts[2]} ${parts[3]} ${formattedTime}`
+  return parts;
 }
 
 const fetchUser = async () => {
@@ -300,9 +301,11 @@ function openSetSchedModal(uid, date, time, hour = 0, min = 1) {
           <p>Time:</p>
           <input type="time" id="setTime" name="setTime" value="${futureTime}" min="${futureTime}" />
           <p>Interval:</p>
-          <input class="step" type="number" id="setHour" name="setHour" value="${hour}" min="0" />
-          <small>:</small>
-          <input class="step" type="number" id="setMin" name="setMin" value="${min}" min="0" />
+          <div class="flex gap-2">
+            <input class="step" type="number" id="setHour" name="setHour" value="${hour}" min="0" />
+            <small>:</small>
+            <input class="step" type="number" id="setMin" name="setMin" value="${min}" min="0" />
+          </div>
           <button class="btn primary" type="submit">Set</button>
         </form>
       </div>
@@ -344,6 +347,32 @@ function openSetSchedModal(uid, date, time, hour = 0, min = 1) {
 const init = async () => {
   ID = await createPanel();
   createMainRecords();
+
+  const menu = document.getElementById("panel__menu");
+  const aside = document.querySelector("aside");
+  menu.addEventListener("click", () => {
+    aside.classList.toggle("open");
+    closeModal();
+  });
+
+  document.addEventListener("click", (event) => {
+    const isClickInside =
+      aside.contains(event.target) || menu.contains(event.target);
+
+    if (!isClickInside) {
+      aside.classList.remove("open");
+      closeModal(); 
+    }
+  });
+
+  function resetOnSm(event) {
+    if (event.matches) {
+      aside.classList.remove("open");
+    }
+  }
+  const smMediaQuery = window.matchMedia("(min-width: 640px)");
+  resetOnSm(smMediaQuery);
+  smMediaQuery.addEventListener("change", resetOnSm);
 };
 
 const createPanel = async () => {
@@ -354,67 +383,53 @@ const createPanel = async () => {
 
   if (panel) panel.innerHTML = "";
   panel.innerHTML += `
-            <div
-              class="profile w-[250px] rounded-full overflow-hidden aspect-square mb-[10px]"
-            >
-              <img
-                class="object-cover w-full h-full"
-                src="${apiURL}/get_image/${user.img_name}"
-                alt=""
-              />
+            <div class="profile">
+              <img src="${apiURL}/get_image/${user.img_name}" alt=""/>
             </div>
-            <div class="name flex justify-between items-center gap-2">
+
+            <div class="name">
               <h4>${user.name}</h4>
-              <a onclick="updateUser(event, '${user.name}')"><img src="../img/edit.png" alt="" /></a>
+              <a onclick="updateUser(event, '${user.name}')"><img src="../img/edit.png" alt="" class="cursor-pointer"/></a>
             </div>
 
-            <nav
-              class="nav grid items-center justify-items-start gap-2 mt-10 w-full"
-            >
-              <a class="panelBtn" id="reportBtn" onclick="createMainReport()"
-                ><li>
+            <nav class="profile__nav nav">
+              <a class="panelBtn" id="reportBtn" onclick="createMainReport()">
+                <li>
                   <img src="../img/info.png" alt="" />
-                  <p class="text-light">User Report</p>
-                </li></a
-              >
-              <a class="panelBtn" id="recordBtn" onclick="createMainRecords()"
-                ><li>
+                  <p>User Report</p>
+                </li>
+              </a>
+              <a class="panelBtn" id="recordBtn" onclick="createMainRecords()">
+                <li>
                   <img src="../img/calendar.png" alt="" />
-                  <p class="text-light">Daily Records</p>
-                </li></a
-              >
+                  <p>Daily Records</p>
+                </li>
+              </a>
             </nav>
-
     `;
 
   return user.id;
 };
 
 const createMainRecords = async () => {
+  const aside = document.querySelector("aside");
+  aside.classList.remove("open");
   let main = document.getElementById("main");
 
   if (main) main.innerHTML = "";
   main.innerHTML += `
-        <div class="main__wrapper h-full flex flex-col gap-3 justify-start">
-            <div id="schedControls"
-              class="schedContols grid grid-flow-col grid-cols-[5fr_1fr] gap-2 justify-between items-center"
-            >
+        <div class="record__wrapper">
+            <div id="schedControls" class="schedControls">
               
             </div>
 
-            <div id="schedTabs"
-              class="schedTabs grid grid-flow-col grid-cols-5 rounded-[10px] bg-white"
-            >
+            <div id="schedTabs" class="schedTabs grid grid-flow-col grid-cols-5 rounded-[10px] bg-white">
  
             </div>
 
             <div class="schedHead grid">
-              <p
-                class="py-[5px] bg-primary text-center text-light rounded-t-[10px]"
-              >
-                Daily Time Records
-              </p>
-              <div class="schedCard rounded-none rounded-b-[10px] py-[5px]">
+              <p>Daily Time Records</p>
+              <div class="schedCard head">
                 <span class="font-bold">Date</span>
                 <span class="font-bold">Drug</span>
                 <span class="font-bold">Schedule</span>
@@ -457,6 +472,8 @@ const createMainRecords = async () => {
 };
 
 const createMainReport = async () => {
+  const aside = document.querySelector("aside");
+  aside.classList.remove("open");
   let details = await fetchUserDetails(ID);
 
   console.log(details);
@@ -465,11 +482,11 @@ const createMainReport = async () => {
   if (main) main.innerHTML = "";
 
   main.innerHTML += `
-        <div class="main__wrapper h-full flex flex-col gap-6 justify-start">
-            <div class="demographic px-9 py-5 bg-primary/30 rounded-[20px]">
+        <div class="report__wrapper h-full flex flex-col gap-6 justify-start">
+            <div class="demographic">
               <h4 class="font-bold">User Demographics</h4>
               <div
-                class="demographic__wrapper flex justify-between items-start mt-5 px-10"
+                class="demographic__wrapper"
               >
                 <div class="demographic__col">
                   <p><strong>Name: </strong>${details.name}</p>
@@ -477,8 +494,8 @@ const createMainReport = async () => {
                   <p><strong>Sex: </strong>${details.sex}</p>
                 </div>
                 <div class="demographic__col">
-                  <p><strong>Height: </strong>${details.height} cm</p>
-                  <p><strong>Weight: </strong>${details.weight} kg</p>
+                  <p><strong>Height: </strong>${details.height}cm</p>
+                  <p><strong>Weight: </strong>${details.weight}kg</p>
                 </div>
                 <div class="demographic__col">
                   <p><strong>Contact No: </strong>${details.contact}</p>
@@ -486,7 +503,7 @@ const createMainReport = async () => {
                 </div>
                 <div class="demographic__col">
                   <ul id="diseases" class="list-disc list-inside">
-                    <strong>Disease/s: </strong>
+                    <p><strong>Disease/s: </strong></p>
 
                   </ul>
                 </div>
@@ -494,39 +511,31 @@ const createMainReport = async () => {
             </div>
 
             <div
-              class="analytics grid grid-flow-col grid-cols-2 gap-6 overflow-y-auto"
+              class="analytics"
             >
-              <div class="summary bg-white rounded-[20px] py-5 px-5">
+              <div class="summary">
                 <div
-                  class="summaryCard grid justify-items-center items-center gap-6"
+                  class="summaryCard"
                 >
-                  <h4 class="text-accent font-bold text-center">
-                    Monthly General Adherence Status
-                  </h4>
+                  <h4>Monthly General Adherence Status</h4>
 
                   <div
-                    class="adherence grid items-start justify-items-start gap-2"
+                    class="adherence"
                   >
-                    <div class="adherenceGroup grid grid-flow-col gap-4">
-                      <p class="list-disc list-inside">
-                        <strong>Most Adherent: </strong>
-                      </p>
+                    <div class="adherenceGroup">
+                      <p><strong>Most Adherent:</strong></p>
                       <div id="most" class="adherenceItems">
   
                       </div>
                     </div>
-                    <div class="adherenceGroup grid grid-flow-col gap-4">
-                      <p class="list-disc list-inside">
-                        <strong>Most Adherent: </strong>
-                      </p>
+                    <div class="adherenceGroup">
+                      <p><strong>Slightly Adherent:</strong></p>
                       <div id="slight" class="adherenceItems">
                         
                       </div>
                     </div>
-                    <div class="adherenceGroup grid grid-flow-col gap-4">
-                      <p class="list-disc list-inside">
-                        <strong>Most Adherent: </strong>
-                      </p>
+                    <div class="adherenceGroup">
+                      <p><strong>Non-Adherent:</strong></p>
                       <div id="non" class="adherenceItems">
                         
                       </div>
@@ -534,17 +543,17 @@ const createMainReport = async () => {
                   </div>
 
                   <div id="percent"
-                    class="percent py-6 px-8 rounded-[20px] grid justify-items-center items-center gap-1"
+                    class="percent"
                   >
 
                   </div>
                 </div>
               </div>
-              <div class="summary bg-white rounded-[20px] py-5 px-5">
+              <div class="summary">
                 <div
-                  class="summaryCard grid justify-items-center items-center gap-6"
+                  class="summaryCard"
                 >
-                  <h4 class="text-accent font-bold text-center">
+                  <h4>
                     Weekly Missed Schedule
                   </h4>
                   <canvas id="missedChart" width="400" height="200"></canvas>
@@ -628,12 +637,34 @@ const createMainReport = async () => {
   }
   percent.innerHTML = `
         <h5 class="font-bold">${month}</h5>
-        <h2 class="text-primary my-[-6px]">${average} %</h2>
+        <h2 class="counter" data-target="${average}">0</h2>
         <span class="font-bold">Adherent</span>
         <h6>${adherent}</h6>
     `;
 
   graph(count);
+
+  const counters = document.querySelectorAll(".counter");
+
+  counters.forEach((counter) => {
+    const target = +counter.getAttribute("data-target");
+    const duration = 500; // total duration in ms
+    const increment = target / (duration / 16); // assuming ~60fps (~16ms/frame)
+
+    let current = 0;
+
+    const updateCounter = () => {
+      current += increment;
+      if (current < target) {
+        counter.innerText = `${Math.ceil(current)}%`;
+        requestAnimationFrame(updateCounter);
+      } else {
+        counter.innerText = `${target}%`;
+      }
+    };
+
+    updateCounter();
+  });
 
   document.getElementById("recordBtn").classList.remove("open");
   document.getElementById("reportBtn").classList.add("open");
@@ -643,6 +674,7 @@ const graph = (count) => {
   const labels = Object.keys(count); // e.g., ["B", "C", "D"]
   const values = labels.map((key) => count[key].missed); // e.g., [0, 3, 1]
 
+  const missedChart = document.getElementById("missedChart");
   const ctx = document.getElementById("missedChart").getContext("2d");
 
   new Chart(ctx, {
@@ -660,6 +692,7 @@ const graph = (count) => {
     },
     options: {
       responsive: true,
+      maintainAspectRatio: true,
       scales: {
         y: {
           beginAtZero: true,
@@ -673,6 +706,8 @@ const graph = (count) => {
       },
     },
   });
+
+  missedChart.style.width = "100%";
 };
 
 function openRenameLabelModal(name) {
@@ -694,7 +729,6 @@ function openRenameLabelModal(name) {
   }
 }
 
-
 function renameLabel(e, uid, name) {
   e.preventDefault();
 
@@ -715,7 +749,6 @@ function renameLabel(e, uid, name) {
         // alert("Medication renamed successfully!");
         closeModal();
         activateSched(e, uid, 0);
-        
       } else {
         alert("An error occurred: " + patchRequest.statusText);
       }
@@ -742,10 +775,15 @@ const updateRecords = async (pocketID, tabId) => {
 
     let formattedTime = convertTo12HourFormat(time);
 
+    let time__;
+    let date__;
     if (!record.taken) {
-      record.taken = "";
+      time__ = "";
+      date__ = "";
     } else {
-      record.taken = formatTakenTime(record.taken);
+      let taken = formatTakenTime(record.taken);
+      time__ = convertTo12HourFormat(taken[4]);
+      date__ = `${taken[2]} ${taken[1]}`;
     }
 
     if (!record.status) {
@@ -754,14 +792,17 @@ const updateRecords = async (pocketID, tabId) => {
 
     recordsContainer.innerHTML += `
         <div class="schedCard">
-            <div class="grid justify-items-center items-center">
+            <div class="schedCard__date">
                 <h6>${month}</h6>
-                <h4 class="text-alt font-bold my-[-8px]">${date_}</h4>
+                <h4>${date_}</h4>
                 <h6>${day}</h6>
             </div>
             <p>${record.label}</p>
             <p>${formattedTime}</p>
-            <p>${record.taken}</p>
+            <div class="schedCard__date">
+                <p>${time__}</p>
+                <h6>${date__}</h6>
+            </div>
             <p>${record.status}</p>
         </div>
     `;
@@ -802,7 +843,7 @@ const updatePocket = async (pocketID) => {
   controls.innerHTML += `
         <div class="schedDetails">
             <div
-                class="bg-white grid grid-flow-col grid-cols-4 font-bold items-center justify-items-center w-full border-b border-dark/20 py-1 rounded-t-[10px]"
+                class="schedDetails__head"
             >
                 <p>Drug Name</p>
                 <p>Start Date</p>
@@ -810,31 +851,32 @@ const updatePocket = async (pocketID) => {
                 <p>Interval</p>
             </div>
             <div
-                class="bg-white grid grid-flow-col grid-cols-4 items-center justify-items-center w-full py-1 rounded-b-[10px]"
+                class="schedDetails__body"
             >
-                <p class="cursor-pointer" onclick="renameLabel(event, ${pocket.uid}, '${pocket.label}')">${pocket.label}</p>
+                <div class="flex justify-between items-center gap-2">
+                    <p>${pocket.label}</p>
+                    <img src="../img/edit.png" alt="" onclick="renameLabel(event, ${pocket.uid}, '${pocket.label}')" class="cursor-pointer">
+                </div>
                 <p id=date-${pocket.uid}>${date}</p>
                 <p id=time-${pocket.uid}>${formattedTime}</p>
                 <p>${step}</p>
             </div>
         </div>
         
-        <div class="schedBtn grid gap-1 h-full">
-            <span onclick="setSched(event, ${pocket.uid}, '${date}', '${time}', '${pocket.hour}', '${pocket.min}')"
-                class="flex items-center justify-center h-full w-full bg-gray text-center rounded-[10px] cursor-pointer"
-                ><p>Edit</p></span
-            >
-            <span id="activate-${pocket.uid}" onclick="activateSched(event, ${pocket.uid}, ${stat})"
-                class="flex items-center justify-center h-full w-full bg-green-300 text-center rounded-[10px] cursor-pointer"
-                ><p>${pocket.status}</p></span
-            >
+        <div class="schedBtn">
+            <span onclick="setSched(event, ${pocket.uid}, '${date}', '${time}', '${pocket.hour}', '${pocket.min}')">
+              <p>Edit</p>
+            </span>
+            <span id="activate-${pocket.uid}" onclick="activateSched(event, ${pocket.uid}, ${stat})">
+              <p>${pocket.status}</p>
+            </span>
         </div>
     `;
 
   if (pocket.status === "Activated") {
     document
       .getElementById(`activate-${pocket.uid}`)
-      .classList.remove("bg-gray");
+      .classList.remove("bg-accent");
     document
       .getElementById(`activate-${pocket.uid}`)
       .classList.add("bg-green-300");
@@ -842,7 +884,9 @@ const updatePocket = async (pocketID) => {
     document
       .getElementById(`activate-${pocket.uid}`)
       .classList.remove("bg-green-300");
-    document.getElementById(`activate-${pocket.uid}`).classList.add("bg-gray");
+    document
+      .getElementById(`activate-${pocket.uid}`)
+      .classList.add("bg-accent");
   }
 };
 

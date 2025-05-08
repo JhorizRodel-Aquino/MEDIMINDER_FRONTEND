@@ -3,7 +3,6 @@
   opacity: 0.5;
 }
 
-
 .backdrop {
   position: fixed;
   width: 100%;
@@ -32,6 +31,10 @@
   gap: 1rem;
 }
 
+.userForm input {
+  width: 100%;
+}
+
 .userForm.delete {
   grid-template-columns: 4fr 0.5fr 0.5fr;
 }
@@ -41,7 +44,7 @@
 }
 
 .userForm.sched input.step {
-  width: 6ch
+  width: 6ch;
 }
 
 .userForm label {
@@ -55,4 +58,36 @@
   right: 0;
   transform: translateX(-100%);
   cursor: default;
+}
+
+@media (max-width: 1024px) {
+  .userForm button {
+    grid-column: span 2;
+  }
+  .userForm.update button {
+    grid-column: span 1;
+  }
+
+  .userForm {
+    grid-template-columns: 1fr;
+    padding: 3rem 2rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    justify-items: stretch;
+    width: 50%;
+    min-width: 270px;
+  }
+
+  .userForm.delete {
+    grid-template-columns: 1fr;
+  }
+
+  .userForm.sched {
+    grid-template-columns: 1fr 2fr;
+  }
+}
+
+#missedChart {
+  width: 100%;
 }

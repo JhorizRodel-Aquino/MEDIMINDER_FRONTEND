@@ -9,34 +9,35 @@
     @apply overflow-x-hidden font-sans text-dark bg-white;
   }
   .container {
-    @apply max-w-[1600px] w-full px-20 mx-auto;
+    @apply max-w-[1600px] w-full px-5 sm:px-8 md:px-10 lg:px-20 mx-auto;
   }
   h1 {
-    @apply text-7xl font-bold;
+    @apply text-4xl md:text-6xl lg:text-7xl font-bold;
   }
   h2 {
-    @apply text-5xl font-bold;
+    @apply text-2xl md:text-4xl lg:text-5xl font-bold;
   }
   h3 {
-    @apply text-4xl font-bold;
+    @apply text-xl md:text-3xl lg:text-4xl font-bold;
   }
   h4 {
-    @apply text-2xl;
+    @apply text-lg md:text-xl lg:text-2xl;
   }
   h5,
   .btn,
-  li {
-    @apply text-lg;
+  li,
+  nav a {
+    @apply text-sm md:text-base lg:text-lg;
   }
   span {
-    @apply text-xl;
+    @apply text-xs md:text-sm lg:text-xl;
   }
   h6 {
-    @apply text-sm;
+    @apply text-xs lg:text-sm;
   }
   p,
   .demographic li {
-    @apply text-base;
+    @apply text-xs md:text-sm lg:text-base;
   }
 
   /* .homeBanner::after {
@@ -61,7 +62,7 @@
   }
 
   .btn {
-    @apply py-[10px] inline-block px-[26px] rounded-[8px] font-bold border-4 duration-300 ease-in-out cursor-pointer;
+    @apply py-[5px] md:py-[10px] inline-block px-[13px] md:px-[26px] rounded-[8px] font-bold border-4 duration-300 ease-in-out cursor-pointer;
   }
 
   .btn.primary {
@@ -75,42 +76,192 @@
   }
 
   .featureCard {
-    @apply px-[23px] py-[25px] grid grid-rows-[.5fr_.4fr_1fr] gap-[20px] items-start justify-items-center bg-primary rounded-[20px] h-[361px] text-light text-center;
+    @apply w-[19%] min-w-[180px] lg:min-w-[212px] max-w-[255px] lg:max-w-[255px] px-[14px] py-[16px] lg:px-[23px] lg:py-[25px] grid grid-rows-[.5fr_.4fr_1fr] gap-[8px] md:gap-[12px] lg:gap-[20px] items-start justify-items-center bg-primary rounded-[20px] text-light text-center;
   }
 
   .missionCard {
-    @apply grid gap-6 py-[55px] px-[35px] rounded-[20px] items-center justify-items-center text-center;
+    @apply grid gap-4 md:gap-6 py-[25px] lg:py-[55px] px-[20px] lg:px-[35px] rounded-[20px] items-center justify-items-center text-center;
   }
 
   .personCard {
-    @apply grid items-center justify-items-center gap-4;
+    @apply grid items-center justify-items-center gap-0 lg:gap-4;
   }
 
   .nav a {
-    @apply w-full px-32 hover:bg-gray/20 duration-300 ease-in-out cursor-pointer;
+    @apply w-full hover:bg-gray/20 duration-300 ease-in-out cursor-pointer flex justify-center;
   }
   .nav a li {
-    @apply flex items-center gap-2 py-[7px];
+    @apply flex items-center gap-2 py-[6px] lg:py-[7px];
   }
 
   .nav a.open {
     @apply bg-primary hover:bg-primary;
   }
   .schedCard {
-    @apply w-full grid grid-flow-col items-center justify-items-center grid-cols-[10%_25%_20%_20%_25%] bg-white rounded-[10px];
+    @apply w-full grid grid-flow-col items-center justify-items-center grid-cols-[10%_25%_20%_20%_25%] bg-white rounded-[10px] text-center;
+  }
+  .schedCard__date {
+    @apply grid justify-items-center items-center;
+  }
+
+  .schedCard__date h4 {
+    @apply text-alt font-bold my-[-8px];
+  }
+
+  .schedCard.head {
+    @apply rounded-none rounded-b-[10px] py-[5px];
   }
   .schedRecords {
     @apply grid justify-items-start items-center gap-[9px]  w-full overflow-y-auto;
   }
 
   .demographic__col {
-    @apply grid gap-[2px] items-start justify-items-start;
+    @apply grid gap-2 sm:gap-[2px] items-start justify-items-start;
+  }
+
+  .schedTabs {
+    @apply grid grid-flow-col grid-cols-5 rounded-[10px] bg-white;
   }
 
   .tabBtn {
-    @apply py-[10px] w-full text-center border-b-0;
+    @apply py-[10px] w-full text-center border-b-0 cursor-pointer;
   }
   .tabBtn.open {
     @apply border-b-4 border-accent;
   }
+
+  .panel__wrapper {
+    @apply grid justify-items-center items-start w-full;
+  }
+
+  .panel__wrapper .profile {
+    @apply w-[150px] lg:w-[250px] rounded-full overflow-hidden aspect-square mb-[10px];
+  }
+
+  .panel__wrapper .profile img {
+    @apply object-cover w-full h-full;
+  }
+
+  .panel__wrapper .name {
+    @apply flex justify-between items-center gap-2;
+  }
+
+  .panel__wrapper .nav {
+    @apply grid items-center justify-items-start gap-2 mt-10 w-full;
+  }
+
+  .record__wrapper {
+    @apply h-full flex flex-col gap-2 lg:gap-3 justify-start;
+  }
+
+  .report__wrapper {
+    @apply h-full flex flex-col gap-6 justify-start overflow-x-hidden overflow-y-auto;
+  }
+
+  .schedControls {
+    @apply grid grid-cols-1 lg:grid-cols-[5fr_1fr] gap-2 lg:justify-between lg:items-center;
+  }
+
+  .schedDetails__head {
+    @apply bg-white grid grid-flow-col grid-cols-4 font-bold items-center justify-items-center w-full border-b border-dark/20 py-1 rounded-t-[10px];
+  }
+
+  .schedDetails__body {
+    @apply bg-white grid grid-flow-col grid-cols-4 items-center justify-items-center w-full py-1 rounded-b-[10px];
+  }
+
+  .schedBtn {
+    @apply grid gap-x-2 grid-cols-2 lg:grid-cols-1 gap-y-1 h-full;
+  }
+
+  .schedBtn span {
+    @apply py-[5px] lg:py-0 lg:h-full lg:max-w-none;
+  }
+
+  .schedBtn span:first-child {
+    @apply flex items-center justify-center h-full w-full bg-gray text-center rounded-[10px] cursor-pointer;
+  }
+
+  .schedBtn span:last-child {
+    @apply flex items-center justify-center h-full w-full  text-center rounded-[10px] cursor-pointer;
+  }
+
+  .schedHead {
+    @apply grid;
+  }
+
+  .schedHead p {
+    @apply py-[5px] bg-primary text-center rounded-t-[10px] text-light;
+  }
+
+  .demographic {
+    @apply px-4 md:px-9 py-3 md:py-5 bg-primary/30 rounded-[20px];
+  }
+
+  .demographic__wrapper {
+    @apply flex-wrap px-5 sm:flex-nowrap flex gap-2 justify-between items-start mt-5 sm:px-10;
+  }
+
+  .demographic__col ul {
+    @apply list-disc list-inside;
+  }
+
+  .analytics {
+    @apply grid md:grid-cols-2 gap-6;
+  }
+
+  .summary {
+    @apply bg-white rounded-[20px] p-3 lg:p-5 w-full;
+  }
+
+  .summaryCard {
+    @apply grid justify-items-center items-center gap-6 w-full;
+  }
+
+  .summaryCard h4 {
+    @apply text-accent font-bold text-center;
+  }
+
+  .adherence {
+    @apply grid items-start justify-items-start gap-2 w-[70%];
+  }
+
+  .adherenceGroup {
+    @apply grid grid-flow-col gap-4 w-full grid-cols-[50%_auto];
+  }
+
+  .percent {
+    @apply py-6 w-[45%] rounded-[20px] grid justify-items-center items-center gap-1;
+  }
+
+  .percent h2 {
+    @apply text-primary my-[-6px];
+  }
+
+  .cursor__pointer {
+    @apply cursor-pointer;
+  }
+
+  .test {
+    @apply bg-black/20 lg:bg-green-300 md:bg-red-200 sm:bg-yellow-300;
+  }
+
+  .panel__menu {
+    @apply grid gap-[2px] lg:hidden;
+  }
+
+  .panel__menu span {
+    @apply inline-block w-5 h-[4px] bg-primary rounded-lg;
+  }
+
+  aside {
+    @apply bg-dark h-full w-[250px] sm:w-[200px] md:w-[300px] lg:w-[400px] py-6 text-light lg:relative lg:left-0 fixed -left-full duration-300 ease-in-out;
+  }
+
+  aside.open {
+    @apply fixed left-0;
+  }
+
+
+
 }

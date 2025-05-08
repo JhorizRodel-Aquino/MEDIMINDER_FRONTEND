@@ -14,9 +14,9 @@
       <div class="container">
         <div class="header__wrapper grid-between">
           <a href="./index.html"
-            ><img src="../img/logo.png" alt="" class="logo"
+            ><img src="../img/logo.png" alt="" class="logo w-[130px] sm:w-auto"
           /></a>
-          <nav class="grid-between gap-[34px] text-dark">
+          <nav class="grid-between gap-4 md:gap-[34px] text-dark">
             <!-- <a
               href="product.html"
               class="hover:text-accent duration-300 ease-in-out"
@@ -27,7 +27,7 @@
               class="hover:text-accent duration-300 ease-in-out"
               >Our Team</a
             >
-            <a href="./log.html" class="ml-[27px] group"
+            <a href="./log.html" class="group"
               ><svg
                 width="25"
                 height="20"
@@ -49,18 +49,18 @@
 
     <!-- BANNER -->
     <section
-      class="teamBanner bg-light bg-[url('../img/banner-violet.png')] bg-cover bg-center bg-no-repeat animate-bgSlide relative z-0 py-5 max-h-[659px]"
+      class="homeBanner bg-light lg:bg-[url('../img/banner-violet.png')] bg-cover bg-center bg-no-repeat animate-bgSlide relative z-0 py-5 max-h-[659px]"
     >
       <div class="container">
         <div
-          class="teamBanner__wrapper grid items-center justify-between grid-flow-col grid-cols-[1fr_1fr] gap-10"
+          class="homeBanner__wrapper grid items-center justify-between grid-flow-col grid-cols-1 lg:grid-cols-2 gap-10"
         >
           <div
             data-aos="fade-right"
-            class="homeBanner__text flex flex-col justify-start items-start gap-[36px] max-w-[500px]"
+            class="homeBanner__text flex flex-col justify-start items-start gap-[16px] lg:gap-[36px] lg:max-w-[500px] my-8 lg:my-14 w-full lg:w-auto"
           >
             <h1 class="text-accent">About Us</h1>
-            <p>
+            <p class="text-justify md:text-start">
               We are a team of
               <strong>third-year pharmacy students</strong> from
               <strong>University of Makati</strong>, in collaboration with a
@@ -78,21 +78,18 @@
             data-aos="fade-left"
             src="../img/umak.png"
             alt=""
-            class="w-full"
+            class="hidden lg:block w-full"
           />
-          <!-- <img
-            src="../img/banner-primary.png"
-            alt=""
-            class="absolute right-0 top-[-10px] z-[-1] md:hidden lg:block w-[50%]"
-          /> -->
         </div>
       </div>
     </section>
 
     <!-- MISSION -->
-    <section class="mission relative bg-white py-24">
+    <section class="mission relative bg-white py-10 lg:py-24">
       <div class="container">
-        <div class="mission__wrapper grid grid-flow-col gap-14 px-32">
+        <div
+          class="mission__wrapper max-w-[400px] grid grid-flow-row md:grid-flow-col gap-6 md:gap-8 lg:gap-14 md:max-w-[1200px] mx-auto"
+        >
           <div data-aos="fade-right" class="missionCard bg-primary text-light">
             <h3>Mission</h3>
             <p>
@@ -118,29 +115,45 @@
     </section>
 
     <!-- TEAM -->
-    <section class="team relative bg-light py-24">
+    <section class="team relative bg-light py-10 lg:py-24">
       <div class="container">
-        <h2 data-aos="fade" class="text-primary text-center mb-12">
+        <h2 data-aos="fade" class="text-primary text-center mb-6 lg:mb-12">
           Meet The Team
         </h2>
         <div
           data-aos="fade-up"
-          class="team__wrapper grid grid-flow-col items-center justify-items"
+          class="team__wrapper grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 lg:gap-x-5 items-center justify-items gap-y-2 md:gap-y-4 lg:gap-0"
         >
           <div class="personCard">
-            <img src="../img/riz.png" alt="" />
+            <img
+              class="w-[150px] sm:w-[200px] md:w-[250px] lg:w-auto"
+              src="../img/riz.png"
+              alt=""
+            />
             <h4>Jhoriz</h4>
           </div>
           <div class="personCard">
-            <img src="../img/jj.png" alt="" />
+            <img
+              class="w-[150px] sm:w-[200px] md:w-[250px] lg:w-auto"
+              src="../img/jj.png"
+              alt=""
+            />
             <h4>Joshua</h4>
           </div>
           <div class="personCard">
-            <img src="../img/ali.png" alt="" />
+            <img
+              class="w-[150px] sm:w-[200px] md:w-[250px] lg:w-auto"
+              src="../img/ali.png"
+              alt=""
+            />
             <h4>Alianah</h4>
           </div>
           <div class="personCard">
-            <img src="../img/lyn.png" alt="" />
+            <img
+              class="w-[150px] sm:w-[200px] md:w-[250px] lg:w-auto"
+              src="../img/lyn.png"
+              alt=""
+            />
             <h4>Rhezlyn</h4>
           </div>
         </div>
@@ -148,15 +161,15 @@
     </section>
 
     <!-- CTA -->
-    <section class="CTA relative bg-primary z-10 py-16">
+    <section class="CTA relative bg-primary z-10 py-8 lg:py-16">
       <div class="container">
         <div
           data-aos="fade"
-          class="CTA__wrapper grid justify-items-center items-center gap-4 px-[131px] text-light"
+          class="CTA__wrapper grid justify-items-center items-center gap-4 text-light"
         >
           <h4 class="mb-[-12px]">Start Tracking Today!</h4>
           <p>Never miss out your pills again.</p>
-          <a href="" class="btn accent">Sign Up</a>
+          <a href="./user.html" class="btn accent">Sign Up</a>
         </div>
       </div>
     </section>
@@ -165,7 +178,7 @@
     <footer class="footer relative bg-dark z-20 py-4">
       <div class="container">
         <div
-          class="footer__wrapper text-light/80 flex justify-between items-center gap-10"
+          class="footer__wrapper text-light/80 flex flex-col text-center sm:text-start sm:flex-row justify-between items-center gap-4 sm:gap-10"
         >
           <h6>© 2025 MediMinder. All rights reserved.</h6>
           <h6>
